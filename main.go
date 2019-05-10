@@ -1,6 +1,5 @@
 package main
 
-import ()
 import "fmt"
 
 type currency func(int64) int64
