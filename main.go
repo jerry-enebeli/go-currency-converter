@@ -11,7 +11,7 @@ func (cu currency) convert(money int64) int64 {
 var use = "USA"
 
 func main() {
-	store := make(map[string]interface{})
+	store := make(map[string]currency)
 
 	//register currency converters
 	store["NGN"] = toNaria
@@ -23,11 +23,8 @@ func main() {
 	//find the converter in the store and return the address to the function
 	v := store[use]
 
-	//assert type x to type currency
-	x := v.(func(int64) int64)
-
 	//assign currency converter to the selected converter
-	cc = x
+	cc = v
 
 	//print out result
 	fmt.Println(cc.convert(222))
